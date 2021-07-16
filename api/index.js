@@ -22,9 +22,14 @@ const { conn } = require('./src/db.js');
 
 const {PORT} = process.env;
 
+const {updateGenderApi} = require('../api/src/controllers/genders');
+const { updatePlatformApi } = require('./src/controllers/platforms.js');
+
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
+    updatePlatformApi();
+    updateGenderApi();
     console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });

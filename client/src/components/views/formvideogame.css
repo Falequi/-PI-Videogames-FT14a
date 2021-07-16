@@ -1,0 +1,23 @@
+.contentPlatform{
+    display: flex;   
+    flex-wrap: wrap; 
+}
+.itemPlatform{
+    height: 20px;
+    width: 180px;
+    margin: 0.1rem;
+    line-height: 30px;
+    text-align: left;
+}
+
+.contentGender{
+    display: flex;   
+    flex-wrap: wrap; 
+}
+.itemGender{
+    height: 20px;
+    width: 180px;
+    margin: 0.1rem;
+    line-height: 30px;
+    text-align: left;
+}

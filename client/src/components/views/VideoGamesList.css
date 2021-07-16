@@ -1,0 +1,33 @@
+.contenedor {
+    display:flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    /* align-content: center;
+    align-items: center; 
+    padding: 0;
+    margin: 0;
+    list-style: none; */
+    
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.item {
+   margin: 20px; 
+   padding: 20px;
+   display: inline-block;
+   line-height: 10px;
+   
+    /* height: 100px;
+    width: 180px; */
+    /* margin: 0.5rem; */
+    /* ;
+    text-align: left; */
+}
+
+.gen{
+    margin: 5px;
+}
