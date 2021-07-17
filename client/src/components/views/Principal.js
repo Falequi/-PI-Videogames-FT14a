@@ -1,27 +1,27 @@
 import   React, 
        { useEffect }     from 'react';
-import { useDispatch, 
-         useSelector}    from 'react-redux';
-import { getGenres, getPages}       from '../../redux/action';
+import { useDispatch }    from 'react-redux';
+import { getGenres, getPages, getPlatforms}       from '../../redux/action';
 import   VideoGamesList  from './VideoGamesList';
 
 const Principal = () => {
 
     const dispatch = useDispatch();
     
-    const gamesObj =  useSelector(state => state);
-
-    const { games } = gamesObj;
+    // const { games } =  useSelector(state => state);
 
     useEffect(() => {
+        dispatch(getGenres());
+        dispatch(getPlatforms());
         dispatch(getPages()); 
-    },[]);
+    },[dispatch]);
 
     
     return (
             <div>
                 { 
-                    <VideoGamesList games={games}/>
+                    // <VideoGamesList games={games}/>
+                    <VideoGamesList />
                 }
             </div>
         )

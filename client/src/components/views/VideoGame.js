@@ -1,5 +1,5 @@
 import    React, 
-        { useEffect }   from 'react'
+        { useEffect, useState }   from 'react'
 import   parse          from 'html-react-parser';
 import  { useDispatch,
           useSelector } from 'react-redux';
@@ -16,10 +16,21 @@ const VideoGame = ({match}) => {
 
     const {game_id} = gamesObj;
 
+    const [page, setPage] = useState(0);
+    
+    const handlerSiguiente = ()=>{
+        setPage(page+1);
+    }
+    const handlerAnterior = ()=>{
+        (page > 0)&&
+        setPage(page-1);
+    }
+
+
     
     useEffect(() => {
         dispatch(getGameId(id)); 
-    },[]);
+    },[dispatch,id]);
     
     return (
         <div>
@@ -67,6 +78,13 @@ const VideoGame = ({match}) => {
             </div>:
             <div>Cargando... </div>
             }
+        {
+        (game_id)&&    
+            <div>
+            <button className="btnAnterior" onClick={handlerAnterior} >Anterior</button>
+            <button className="btnSiguiente" onClick={handlerSiguiente} >Siguiente</button>
+            </div>
+        } 
         </div>
     )
 }

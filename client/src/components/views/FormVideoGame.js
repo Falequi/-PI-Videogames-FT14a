@@ -1,8 +1,10 @@
-import React, { useEffect, useState }   from 'react'
-import { useDispatch, useSelector }     from 'react-redux';
-import { getGenres, 
-         getPlatforms, 
-         postVideoGame }                from '../../redux/action';
+import    React, 
+        { useEffect, useState }          from 'react'
+import  { useDispatch, useSelector }     from 'react-redux';
+import { Link } from 'react-router-dom';
+import  { getGenres, 
+          getPlatforms, 
+          postVideoGame }                from '../../redux/action';
 import './formvideogame.css';
 
 const FormVideoGame = () => {
@@ -18,23 +20,34 @@ const FormVideoGame = () => {
 
     const dispatch = useDispatch();
     
-    const genres    = useSelector(state => state.genres);
-    const platforms = useSelector(state => state.platforms);
+    const { genres, platforms } = useSelector(state => state);
 
     useEffect(() => {
         dispatch(getGenres());
         dispatch(getPlatforms());
-    }, []);
+    }, [dispatch]);
 
     const handlerSubmit = (e)=>{
-        e.preventDefault();
         dispatch(postVideoGame(ForGame));
+        
+        platforms.map(platform=>{
+            return document.querySelector(`.${platform.name}`)
+            .checked=false;
+        });
+        
+        genres.map(gender=>{
+            return document.querySelector(`.${gender.name}`)
+            .checked=false;
+        });
+        
+        e.preventDefault();
+
     };
 
     const handlerChange = (e)=>{
         var name  = e.target.name;
 
-        var value = e.target.type === 'checbox'? e.target.checked: e.target.value;
+        var value = e.target.value;
 
         setForGame({
             ...ForGame,
@@ -43,7 +56,7 @@ const FormVideoGame = () => {
     };
 
     const handlerChangeGender = (e)=>{
-        var value = e.target.type === 'checbox'? e.target.checked: e.target.value;
+        var value = e.target.value;
 
         setForGame({
             ...ForGame,
@@ -52,15 +65,18 @@ const FormVideoGame = () => {
     };
 
     const handlerChangePlatform = (e)=>{
+
+        console.log(e);
+
         var value = e.target.value;
 
+        if(e.target.checked)
         setForGame({
             ...ForGame,
             platforms : [...ForGame.platforms,value]
         });
     };
 
-    // console.log(ForGame);
 
     return (
         <div>
@@ -103,8 +119,9 @@ const FormVideoGame = () => {
                     {
                         (platforms !== undefined)&&
                         platforms.map(platform=>
-                            <div key={platform.id} className="itemPlatform">
+                            <div  key={platform.id} className="itemPlatform">
                                     <input
+                                        className={ platform.name}
                                         type="checkbox"
                                         name="platforrm"
                                         onClick = {handlerChangePlatform}
@@ -124,6 +141,7 @@ const FormVideoGame = () => {
                     genres.map(genres=>
                     <div key={genres.id} className="itemGender">
                         <input
+                            className={ genres.name }
                             type="checkbox"
                             name="genres1"
                             onClick = {handlerChangeGender}
@@ -137,6 +155,7 @@ const FormVideoGame = () => {
                 <br/>
                 <button onSubmit={handlerSubmit}> Guardar </button>
             </form>      
+                <Link to="./formVideoGame">Nuevo</Link>
         </div>
     )
 }

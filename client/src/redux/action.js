@@ -6,6 +6,10 @@ export const GET_VIDEO_GAME_ID    = "GET_VIDEO_GAME_ID";
 export const GET_GENRES           = "GET_GENRES";
 export const GET_PLATFORMS        = "GET_PLATFORMS";
 export const POST_VIDEO_GAME_ID   = "POST_VIDEO_GAME_ID";
+export const FILTER_GENDER        = "FILTER_GENDER";
+export const FILTER_PLATFORM      = "FILTER_PLATFORM";
+export const FILTER_ALPHABET      = "FILTER_ALPHABET";
+export const FILTER_RATING        = "FILTER_RATING";
 
 
 export function getPages() {
@@ -79,5 +83,33 @@ export function postVideoGame(obj){
     })
     });
   };
+};
+
+export function filterGender(filterGender) {
+  return {
+          type: FILTER_GENDER, 
+          payload: filterGender
+      }
+}
+  
+export function filterPlatform(filterPlatform) {
+  return {
+          type: FILTER_PLATFORM, 
+          payload: filterPlatform
+      }
+}
+
+export function filterAlpha(filterAlphabet) {
+  return {
+          type: FILTER_ALPHABET, 
+          payload: filterAlphabet
+      }
+}
+  
+export function filterRating(filterRating) {
+  return {
+          type: FILTER_RATING, 
+          payload: filterRating
+      }
 }
   

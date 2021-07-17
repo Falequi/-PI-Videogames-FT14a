@@ -3,7 +3,11 @@ import { GET_VIDEO_GAMES,
          GET_VIDEO_GAME_ID,
          POST_VIDEO_GAME_ID,
          GET_GENRES,
-         GET_PLATFORMS
+         GET_PLATFORMS,
+         FILTER_GENDER,
+         FILTER_PLATFORM,
+         FILTER_ALPHABET,
+         FILTER_RATING
         }                     from './action';
 
 
@@ -45,6 +49,42 @@ export default function reducer(state = {}, { type, payload }) {
         return {
           ...state,
           post: payload
+        };
+
+      case FILTER_GENDER: 
+        return {
+          ...state,
+          filters: {
+              ...state.filters,
+              genre: payload
+          }
+        };
+
+      case FILTER_PLATFORM:
+        return {
+          ...state,
+          filters: {
+              ...state.filters,
+              platform: payload
+          }
+        };
+
+      case FILTER_ALPHABET:
+        return {
+          ...state,
+          filters: {
+              ...state.filters,
+              alphabet: payload
+          }
+        };
+        
+      case FILTER_RATING:
+        return {
+          ...state,
+          filters: {
+              ...state.filters,
+              rating: payload
+          }
         };
 
       default: return state;
