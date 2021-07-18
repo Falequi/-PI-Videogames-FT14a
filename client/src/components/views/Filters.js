@@ -1,6 +1,13 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { filterAlpha, filterGender, filterPlatform, filterRating } from '../../redux/action';
+import   React, 
+       { useState }         from 'react';
+import { useDispatch, 
+         useSelector }      from 'react-redux';
+import { filterAlpha, 
+         filterGender, 
+         filterPlatform, 
+         filterRating }     from '../../redux/action';
+
+import './filter.css'
 
 const Filters = () => {
 
@@ -38,64 +45,66 @@ const Filters = () => {
     };
 
     return (
-        <div>
-            {
-                (genres !== undefined)&&
-                <select
-                    value = {gender}
-                    onChange={handlerSelGender}
-                >
-                <option defaultValue >Gender</option>
+        <>
+            <div className="container">
                 {
-                    genres.map( gender=>
-                        <option 
-                        key={ gender.id } 
-                        value={gender.name}
-                        >
-                            {gender.name}
-                        </option>
-                    )
+                    (genres !== undefined)&&
+                    <select
+                        value = {gender}
+                        onChange={handlerSelGender}
+                    >
+                    <option defaultValue >Gender</option>
+                    {
+                        genres.map( gender=>
+                            <option 
+                            key={ gender.id } 
+                            value={gender.name}
+                            >
+                                {gender.name}
+                            </option>
+                        )
+                    }
+                    </select>
                 }
-                </select>
-            }
-            {
-                (platforms !== undefined)&&
-                <select
-                    value = {platform}
-                    onChange={handlerSelPlatform}
-                >
-                <option defaultValue >Platform </option>
                 {
-                    platforms.map( platform =>
-                        <option 
-                            key={ platform.id } 
-                            value={platform.name}
-                        >
-                            { platform.name }
-                        </option>
-                    )
-                }
-                </select>
-            }  
-                <select
-                    value = { alphabetical }
-                    onChange={handlerSelAlphabetical}
-                >
-                <option defaultValue > Alphabetical Order </option>
-                <option value="AZ"> Ascending Order (AZ) </option>
-                <option value="ZA"> Descending Order (ZA) </option>
-                </select>
+                    (platforms !== undefined)&&
+                    <select
+                        value = {platform}
+                        onChange={handlerSelPlatform}
+                    >
+                    <option defaultValue >Platform </option>
+                    {
+                        platforms.map( platform =>
+                            <option 
+                                key={ platform.id } 
+                                value={platform.name}
+                            >
+                                { platform.name }
+                            </option>
+                        )
+                    }
+                    </select>
+                }  
+                    <select
+                        value = { alphabetical }
+                        onChange={handlerSelAlphabetical}
+                    >
+                    <option defaultValue > Alphabetical Order </option>
+                    <option value="AZ"> Ascending Order (AZ) </option>
+                    <option value="ZA"> Descending Order (ZA) </option>
+                    </select>
 
-                <select
-                    value = { rating }
-                    onChange={handlerSelRating}
-                >
-                <option defaultValue > Rating Order </option>
-                <option value ="ASC"> Ascending Order </option>
-                <option value ="DESC"> Descending Order </option>
-                </select>
-
-        </div>
+                    <select
+                        value = { rating }
+                        onChange={handlerSelRating}
+                    >
+                    <option defaultValue > Rating Order </option>
+                    <option value ="ASC"> Ascending Order </option>
+                    <option value ="DESC"> Descending Order </option>
+                    </select>
+                    <hr/>
+            </div>
+        </>
     )
 }
 

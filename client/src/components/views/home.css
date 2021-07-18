@@ -1,3 +1,46 @@
-.linkHome {
-    color: red;
+.home {
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-image: url("https://www.pandasecurity.com/es/mediacenter/src/uploads/2021/07/pandasecurity-videojuegos-dinero.jpg");
+    background-size: cover;
+    background-position: center ;
+    position: absolute;
 }
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.container .btn-home {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 50px;
+    padding: 20px 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: 550ms ease;
+}
+.btn-home:hover {
+    background-color: black;
+    color: white;
+}
+
+.title{
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+

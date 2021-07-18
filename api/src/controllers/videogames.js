@@ -1,6 +1,6 @@
 const axios = require("axios");
 const { baseUrl, key } = require("../../constants");
-const { Videogame } = require("../db");
+const { Videogame,  Gender, Platform } = require("../db");
 const { Op } = require("sequelize");
 
 var getVideoGames = async(req, res) => {
@@ -29,7 +29,9 @@ var getVideoGames = async(req, res) => {
                 });
             });
         }
-        const videoGameData = await Videogame.findAll();
+        const videoGameData = await Videogame.findAll({
+           include: [Gender, Platform]
+        });
 
         Promise.all([videoGames, videoGameData]);
 
@@ -57,10 +59,8 @@ var getVideoGames = async(req, res) => {
         }
         const videoGameData = await Videogame.findAll({
             where: {
-                name: {
-                    [Op.like]: `%${name}%`,
-                },
-            },
+                  name: {  [Op.iLike]: `%${name}%` }
+            }
         });
 
         Promise.all([videoGames, videoGameData]);

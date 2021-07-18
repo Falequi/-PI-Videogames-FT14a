@@ -1,8 +1,12 @@
 import   React, 
-       { useEffect }     from 'react';
+       { useEffect }      from 'react';
 import { useDispatch }    from 'react-redux';
-import { getGenres, getPages, getPlatforms}       from '../../redux/action';
-import   VideoGamesList  from './VideoGamesList';
+import { getGenres, 
+         getPages, 
+         getPlatforms}    from '../../redux/action';
+import   VideoGamesList   from './VideoGamesList';
+
+import './principal.css';
 
 const Principal = () => {
 
@@ -18,7 +22,7 @@ const Principal = () => {
 
     
     return (
-            <div>
+            <div className="container">
                 { 
                     // <VideoGamesList games={games}/>
                     <VideoGamesList />

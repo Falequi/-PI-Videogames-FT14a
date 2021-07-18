@@ -4,15 +4,19 @@ import './home.css';
 
 const Home = () => {
 
-    return (
-        <div>
-            <h1 className="linkHome">Home</h1>
-            <hr/>
-            <Link to="/principal" >
-                <button>Entrar</button>
-            </Link>
-        </div>
 
+    return (
+        <>
+        <div className="home">
+        <h1 className="title">Home</h1> 
+        <hr/> 
+            <div className="container">
+                <Link to="/principal" >
+                    <button className='btn-home'>Play</button>
+                </Link>
+            </div>
+        </div>
+        </>
     )
 }
 

@@ -13,7 +13,6 @@ const DasboardRoutes = () => {
     return (
         <div>
             <Search/>
-            <hr/>
             <Filters />
             <Switch>
                 <Route exact path="/principal"              component={ Principal } />

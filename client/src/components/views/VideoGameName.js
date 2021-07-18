@@ -2,6 +2,7 @@ import    React,
         { useEffect, useState }   from 'react'
 import  { useDispatch, 
           useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import  { getGameName } from '../../redux/action';
 import './videogamename.css';
 
@@ -63,9 +64,12 @@ const VideoGameName = ({match}) => {
             <div className="contenedor">
             {
                 game_name.slice(limInferior,limSuperior).map( game=>
-                    <div key={game.id}>
-                        {game.name}
+                    <div key={game.id} className="item">
+                        <h4>{game.name}</h4>
                         <img src={ game.image} alt="imagen video"/>
+                        <br/>
+                        <br/>
+                        <div><Link to ={`/videogameId/${game.id}`} >Mas..</Link></div>
                     </div>
                 )
             }
@@ -75,6 +79,8 @@ const VideoGameName = ({match}) => {
               {
         (game_name)&&    
             <div>
+                <br/>
+                <br/>
             <button className="btnAnterior" onClick={handlerAnterior} >Anterior</button>
             <button className="btnSiguiente" onClick={handlerSiguiente} >Siguiente</button>
             </div>

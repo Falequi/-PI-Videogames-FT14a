@@ -1,10 +1,11 @@
 import    React, 
-        { useEffect, useState }   from 'react'
-import   parse          from 'html-react-parser';
+        { useEffect, 
+          useState }     from 'react'
+import    parse          from 'html-react-parser';
 import  { useDispatch,
-          useSelector } from 'react-redux';
+          useSelector }  from 'react-redux';
           
-import  { getGameId }   from '../../redux/action';
+import  { getGameId }    from '../../redux/action';
 
 const VideoGame = ({match}) => {
 
@@ -25,9 +26,7 @@ const VideoGame = ({match}) => {
         (page > 0)&&
         setPage(page-1);
     }
-
-
-    
+   
     useEffect(() => {
         dispatch(getGameId(id)); 
     },[dispatch,id]);
@@ -38,10 +37,9 @@ const VideoGame = ({match}) => {
             {
             (game_id !== undefined)?
             <div key={game_id.id}>
-
                 {game_id.name}
                 <br/>
-                <img src={ game_id.image} alt="imagen game"/>
+                <img src={ game_id.image } alt="imagen game"/>
 
                 <div>{parse(game_id.description)}</div>
 

@@ -1,8 +1,10 @@
-import   React, { useEffect, useState }  from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import    React, 
+        { useEffect, 
+          useState }    from 'react';
+import {  useSelector } from 'react-redux';
+import {  Link }        from 'react-router-dom';
 
-import './VideoGamesList.css';
+// import './VideoGamesList.css';
 
 const VideoGamesList = () => {
 
@@ -39,17 +41,22 @@ const VideoGamesList = () => {
             game.genres.map(
                 genre =>{ 
                 if(genre.name === filters.genre)
-                 filteredGames.push(game);
-                }));
+                  filteredGames.push(game);
+            }));
         }
 
         if(filters.platform){
+            
             games.map(game =>
             game.platforms.map(
                 platform =>{ 
-                if(platform.platform.name === filters.platform)
-                 filteredGames.push(game);
-                }));
+                if(!platform.platform){
+                    if(platform.name === filters.platform)
+                    filteredGames.push(game);   
+                }else{
+                    if(platform.platform.name === filters.platform)
+                    filteredGames.push(game);
+                }}));
         }
 
         if(filters.alphabet){
@@ -84,8 +91,6 @@ const VideoGamesList = () => {
             }
         }
 
-
-        // console.log(filteredGames.length);
     }
             
     /*  Paginado */
@@ -136,7 +141,7 @@ const VideoGamesList = () => {
                             <img src={games.image} alt="imagen video"/>
                         }
                         {
-                        (games.genres)&&
+                        (games.genres)?
                             <div className="gen">
                                 <ul>
                                     {
@@ -145,10 +150,18 @@ const VideoGamesList = () => {
                                             )
                                     }
                                 </ul>
+                            </div>:
+                             <div className="gen">
+                                <ul>
+                                    {
+                                        games.genders.map(genres=>
+                                            <li key={genres.id}>{genres.name}</li>
+                                            )
+                                    }
+                                </ul>
                             </div>
                         }
                         <Link to ={`/videogameId/${games.id}`} >Mas..</Link>
-
                     </div>
                 )
             }
