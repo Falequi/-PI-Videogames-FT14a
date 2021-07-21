@@ -10,6 +10,9 @@ export const FILTER_GENDER        = "FILTER_GENDER";
 export const FILTER_PLATFORM      = "FILTER_PLATFORM";
 export const FILTER_ALPHABET      = "FILTER_ALPHABET";
 export const FILTER_RATING        = "FILTER_RATING";
+export const CLEAR_GAME_NAME      = "CLEAR_GAME_NAME";
+export const LOADING              = "LOADING";
+export const CLEAR_FILTER         = "CLEAR_FILTER";
 
 
 export function getPages() {
@@ -54,7 +57,7 @@ export function getGenres(){
     axios.get(`http://localhost:3001/genres`)
     .then((response)=>{
       dispatch({
-        type: GET_GENRES,
+        type:   GET_GENRES,
         payload: response.data
       });
     });
@@ -112,4 +115,24 @@ export function filterRating(filterRating) {
           payload: filterRating
       }
 }
+
+export function clearGameName(){
+  return {
+      type: CLEAR_GAME_NAME,
+      payload: []
+  }
+}
   
+export function stateLoad(std){
+  return {
+    type: LOADING,
+    payload: std
+  }
+}
+
+export function clearFilter(){
+  return {
+      type: CLEAR_FILTER,
+      payload: []
+  }
+}

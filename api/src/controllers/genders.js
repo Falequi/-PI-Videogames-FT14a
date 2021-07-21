@@ -5,6 +5,9 @@ const {baseUrl, key}    = require('../../constants');
 
 var updateGenderApi = async() =>{
 
+    const cantGenders = await Gender.findAll();
+        
+    if(cantGenders.length === 0){    
     const genders = await axios.get(`${baseUrl}genres?${key}`);
 
     const genres = genders.data.results;
@@ -15,6 +18,7 @@ var updateGenderApi = async() =>{
                     default: {name: genders.name}
             })
     );
+        }
 };
 
 var getGender = async(req,res)=>{

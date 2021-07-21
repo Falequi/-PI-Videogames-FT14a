@@ -28,6 +28,7 @@ const FormVideoGame = () => {
     }, [dispatch]);
 
     const handlerSubmit = (e)=>{
+        
         dispatch(postVideoGame(ForGame));
         
         platforms.map(platform=>{
@@ -39,6 +40,8 @@ const FormVideoGame = () => {
             return document.querySelector(`.${gender.name}`)
             .checked=false;
         });
+
+        
         
         e.preventDefault();
 
@@ -57,38 +60,38 @@ const FormVideoGame = () => {
 
     const handlerChangeGender = (e)=>{
         var value = e.target.value;
-
         setForGame({
             ...ForGame,
             genres : [...ForGame.genres,value]
         });
     };
-
+    
     const handlerChangePlatform = (e)=>{
-
+        
         console.log(e);
-
+        
         var value = e.target.value;
-
+        
         if(e.target.checked)
         setForGame({
             ...ForGame,
             platforms : [...ForGame.platforms,value]
-        });
+        });    
     };
 
-
+    
     return (
-        <div>
+        <div className="containerFormVideoGame">
             <h2>Formulario Video Game</h2>
             <br/>
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handlerSubmit} action="http://localhost:3000/principal" >
                 <label >Nombre: </label>
                 <input
                     name="name"
                     placeholder="Digite el nombre"
                     onChange = {handlerChange}
                     value={`${ForGame.name}`}
+                    required
                 />
                 <br/>
                 <label>Descripcion: </label>
@@ -96,6 +99,7 @@ const FormVideoGame = () => {
                     name="description"
                     placeholder="Digite el descripcion"
                     onChange = {handlerChange}
+                    required
                 />
                 <br/>
                 <label>Release Date: </label>
@@ -103,6 +107,7 @@ const FormVideoGame = () => {
                     type="date" 
                     name="releaseDate"
                     onChange = {handlerChange}
+                    required
                 />
                 <br/>
                 <label >Rating: </label>
@@ -111,6 +116,7 @@ const FormVideoGame = () => {
                     name="rating"
                     placeholder="Digite el rating"
                     onChange = {handlerChange}
+                    required
                 />
                 <br />
                 <br />
@@ -154,8 +160,9 @@ const FormVideoGame = () => {
                 </div>
                 <br/>
                 <button onSubmit={handlerSubmit}> Guardar </button>
+                <Link to="/principal"> <button>Volver</button></Link>
+                
             </form>      
-                <Link to="./formVideoGame">Nuevo</Link>
         </div>
     )
 }

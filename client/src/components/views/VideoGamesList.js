@@ -4,15 +4,12 @@ import    React,
 import {  useSelector } from 'react-redux';
 import {  Link }        from 'react-router-dom';
 
-// import './VideoGamesList.css';
-
 const VideoGamesList = () => {
 
     var filteredGames =[];
 
     const {games, filters} = useSelector(state => state);
 
-    
     const [page, setPage] = useState(0);
     
     const handlerSiguiente = (e)=>{
@@ -29,7 +26,6 @@ const VideoGamesList = () => {
     (games) &&  (filteredGames = games);
 
     useEffect(() => {
-        // console.log("cambio");
     }, [filters]);
 
     if(filters !== undefined){
@@ -100,8 +96,8 @@ const VideoGamesList = () => {
         numPage = Math.ceil(filteredGames.length/15);
     }
 
-    const btnSiguiente = document.querySelector('.btnSiguiente');
-    const btnAnterior = document.querySelector('.btnAnterior');
+    const btnSiguiente  = document.querySelector('.btnSiguiente');
+    const btnAnterior   = document.querySelector('.btnAnterior');
     
     if(btnSiguiente !== null &&  btnAnterior !== null)
     {
@@ -138,7 +134,7 @@ const VideoGamesList = () => {
                         <h5>{games.name}</h5>
                         {
                         (games.image)&&
-                            <img src={games.image} alt="imagen video"/>
+                            <img className="imgGameList" src={games.image} alt="imagen video"/>
                         }
                         {
                         (games.genres)?

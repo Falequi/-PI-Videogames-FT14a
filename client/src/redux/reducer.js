@@ -7,11 +7,30 @@ import { GET_VIDEO_GAMES,
          FILTER_GENDER,
          FILTER_PLATFORM,
          FILTER_ALPHABET,
-         FILTER_RATING
+         FILTER_RATING,
+         CLEAR_GAME_NAME,
+         CLEAR_FILTER,
+         LOADING
         }                     from './action';
 
+const initialState = {
+  games:    [],
+  game_name:[],
+  game_id:  [],
+  genres:   [],
+  platforms:[],
+  post:     [],
+  loading:  false,
+  filters:{
+    genre:    '',
+    platform: '',
+    alphabet: '',
+    rating:   ''
+  }
+}
 
-export default function reducer(state = {}, { type, payload }) {
+
+export default function reducer(state = initialState, { type, payload }) {
   
     switch (type) {
 
@@ -87,6 +106,29 @@ export default function reducer(state = {}, { type, payload }) {
           }
         };
 
+      case CLEAR_GAME_NAME:
+        return {
+          ...state,
+          game_name: payload
+          };
+
+      case LOADING:
+        return {
+          type: LOADING,
+          loading: payload
+        };
+          
+      case CLEAR_FILTER:
+        return {
+          ...state,
+          filters:{
+            genre:    '',
+            platform: '',
+            alphabet: '',
+            rating:   ''
+          }
+        };
+          
       default: return state;
     }
   }

@@ -1,12 +1,33 @@
-import   React  from 'react';
+import   React, { useEffect }  from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './home.css';
 
+
+import { getGenres, 
+         getPages, 
+         getPlatforms,
+         stateLoad,
+          }    from '../../redux/action';
+
+          
+          
+          
 const Home = () => {
+           
+    const dispatch =  useDispatch();
 
-
+    useEffect(() => {
+        const initialLoading =()=>{
+             dispatch(getGenres());
+             dispatch(getPlatforms());
+             dispatch(getPages()); 
+        };
+        initialLoading();
+    }, []);
+    
     return (
-        <>
+        <>  
         <div className="home">
         <h1 className="title">Home</h1> 
         <hr/> 

@@ -1,3 +1,29 @@
+/* Globales */
+*{
+    box-sizing: border-box;
+}
+/* Fin Globales */
+/*Header*/
+.header{
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    background-color:rgb(27, 79, 114, .80);
+    position: fixed;
+}
+.header:target{
+    padding-top: 75%;
+}
+
+/*Fin Header*/
+/* App*/
+.App{
+    background-color: black;
+}
+/* Fin App*/
+
+/* Home */
 .home {
     height: 100vh;
     width: 100vw;
@@ -19,17 +45,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
+    opacity: .10;
     background-color: #f1f1f1;
     color: black;
     font-size: 50px;
     padding: 20px 35px;
-    border: none;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
     transition: 550ms ease;
 }
 .btn-home:hover {
+    opacity: 1;
+    width: 180px;
+    height: 100px;
     background-color: black;
     color: white;
 }
@@ -42,5 +71,137 @@
     margin-right: auto;
     color: white;
 }
+/* Fin Home */
+
+/* List */
+.contenedorList {
+    padding-top: 100px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.imgGameList {
+    width: 180px;
+    height: 120px;
+    border-radius: 50px 200px / 250px 80px;
+    box-shadow: 5px 10px 10px 5px;
+}
+
+.imgGameList:hover {
+    width: 220px;
+    height: 140px;
+    box-shadow: 5px 10px 10px 5px blue;
+}
+
+
+li{
+    padding-top: 10px;
+    text-align:center;
+    list-style: none;
+}
+
+.itemList {
+    height: 350px;
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    display: inline-block;
+    line-height: 15px;
+    background-color: slategrey;
+    border-radius: 50px 200px / 250px 80px;
+    box-shadow: 5px 10px 20px 2px yellow;
+}
+
+
+/* Fin List */
+
+/* Fin Filter */
+
+/* VideoGameId */
+.containerVideoGameId{
+    display: flex;
+    flex-flow: wrap;
+    color: blanchedalmond;
+}
+.cardVideogameId{
+    margin-top: 5px;
+    
+}
+.titelVideoGameId{
+    width: 180px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.imgVideoGameId{
+    width: 250px;
+    height: 200px;
+    margin: 10px auto;
+}
+/* Fin VideoGameId */
+
+/* Loading */
+.loading{
+    background-color: red;
+}
+
+/* Fin Loading*/
+
+/*Pagination*/
+.btnButtonsPagination{
+    width: 500px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+}
+
+.btnButtonsPagination button {
+    width: 200px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50px 80px / 10px 200px;
+    background-color: yellow;
+}
+
+/* Fin  Pagination*/
+
+/* FormVideoGame*/
+.containerFormVideoGame{
+    color: white;
+}
+
+/* Fin FormVideoGame*/
+
+/* Principal */
+.principal{
+    display: flex;
+    background-color: black;
+}
+/* Fin Principal */
+
+/* Filter */
+.containerFilter{
+    display: flex;
+    padding: 10px;
+    justify-content: space-evenly;
+   /* overflow: hidden; */
+}
+/* Fin  Filter */
+
+/* Search */
+.containerSearch{
+    display: flex; 
+    padding-top: 5px;
+    justify-content: space-evenly;
+}
+/* Fin Search */
+
+/* */
+/* */
 
 

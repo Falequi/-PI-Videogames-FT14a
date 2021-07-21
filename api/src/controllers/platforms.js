@@ -4,17 +4,21 @@ const {baseUrl, key}    = require('../../constants');
 
 
 var updatePlatformApi = async() =>{
-
-    const platforms = await axios.get(`${baseUrl}platforms?${key}`);
-
-    const platfors = platforms.data.results;
-
-    platfors.map(async genders =>
-            await Platform.findOrCreate({
-                    where:   {name: genders.name},
-                    default: {name: genders.name}
-            })
-    );
+        
+        const cantPlatforms = await Platform.findAll();
+        
+        if(cantPlatforms.length === 0){
+        const platforms = await axios.get(`${baseUrl}platforms?${key}`);
+        
+        const platfors = platforms.data.results;
+        
+        platfors.map(async genders =>
+                await Platform.findOrCreate({
+                        where:   {name: genders.name},
+                        default: {name: genders.name}
+                })
+                );
+        }
 };
 
 var getPlatform = async(req,res)=>{

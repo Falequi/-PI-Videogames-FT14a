@@ -1,10 +1,8 @@
 import   React, 
        { useState }         from 'react';
-import { useDispatch}       from 'react-redux';
-import { getGameName }      from '../../redux/action';
+import { useDispatch, useSelector}       from 'react-redux';
+import { clearGameName, getGameName }      from '../../redux/action';
 import { Link, Redirect }   from 'react-router-dom';
-
-
 
 const Search = () => {
 
@@ -12,23 +10,25 @@ const Search = () => {
 
     const [nameGame, setNameGame] = useState("");
     
-    const handlerSubmit = (e)=>{
-        e.preventDefault();
-        if(nameGame !== ""){  
-            dispatch(getGameName(nameGame));
-            <Redirect to={ `/videogameId?${nameGame}`} />
-        }
-        else {   
-            console.log("vacio");
-        }
-    }
-    
     const handleChange = (e)=>{
         setNameGame(e.target.value);
     };
+     const game_name = useSelector(state => state.game_name);
 
+    const handlerSubmit = (e)=>{
+        e.preventDefault();
+        if(game_name !== ""){  
+            dispatch(getGameName(nameGame));
+        }
+        else {   
+            dispatch(clearGameName());
+        }
+        setNameGame("");
+    };
+
+   
     return (
-        <div>
+        <div className="containerSearch">
             <form onSubmit={handlerSubmit}>
             <label>Buscar</label>
             <input
@@ -38,9 +38,9 @@ const Search = () => {
                 value={nameGame}
                 autoFocus
             />
-            <Link to={`/videogameName/${nameGame}`}><button>Buscar</button></Link>
+            <button type="submit">Buscar</button>
             </form>
-            <Link to="/formVideoGame">Crear</Link>
+            <Link to="/formVideoGame"><button> Crear</button></Link>
         </div>
     )
 }

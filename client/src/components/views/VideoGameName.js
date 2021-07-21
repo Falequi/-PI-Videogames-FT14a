@@ -4,53 +4,50 @@ import  { useDispatch,
           useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import  { getGameName } from '../../redux/action';
-import './videogamename.css';
+
 
 const VideoGameName = ({match}) => {
 
-    const {name} = match.params;
-
-    const dispatch = useDispatch();
+    const dispatch          = useDispatch();    
+    const { name }          = match.params;
+    const { game_name }      = useSelector(state => state);
+    // const [ page, setPage]  = useState(0);
     
-    const gamesObj =  useSelector(state => state);
+    // const handlerSiguiente = (e)=>{
+    //       e.preventDefault();
+    //       setPage(page+1);
+    // }
 
-    const {game_name} = gamesObj;
+    // const handlerAnterior = ()=>{
+    //       (page > 0)&&
+    //       setPage(page-1);
+    // }
 
-    const [page, setPage] = useState(0);
+    // var limSuperior=15, limInferior=0, numPage = 0;
+
+    // if(game_name !== undefined){
+    //     numPage = Math.ceil(game_name.length/15);
+    // }
+
+    // const btnSiguiente = document.querySelector('.btnSiguiente');
+    // const btnAnterior = document.querySelector('.btnAnterior');
     
-    const handlerSiguiente = (e)=>{
-        e.preventDefault();
-        setPage(page+1);
-    }
-    const handlerAnterior = ()=>{
-        (page > 0)&&
-        setPage(page-1);
-    }
-    var limSuperior=15, limInferior=0, numPage = 0;
+    // if(btnSiguiente !== null &&  btnAnterior !== null)
+    // {
+    //     if(page < numPage){
+    //         limSuperior = page*15 + 15;
+    //         btnSiguiente.disabled=false;
+    //         if(page+1 === numPage)
+    //             btnSiguiente.disabled=true;
+    //     }else 
+    //         btnSiguiente.disabled=true;
 
-    if(game_name !== undefined){
-        numPage = Math.ceil(game_name.length/15);
-    }
-
-    const btnSiguiente = document.querySelector('.btnSiguiente');
-    const btnAnterior = document.querySelector('.btnAnterior');
-    
-    if(btnSiguiente !== null &&  btnAnterior !== null)
-    {
-        if(page < numPage){
-            limSuperior = page*15 + 15;
-            btnSiguiente.disabled=false;
-            if(page+1 === numPage)
-                btnSiguiente.disabled=true;
-        }else 
-            btnSiguiente.disabled=true;
-
-        if(page > 0){
-            limInferior = limSuperior - 15;
-            btnAnterior.disabled=false;
-        }else
-            btnAnterior.disabled=true;
-    }
+    //     if(page > 0){
+    //         limInferior = limSuperior - 15;
+    //         btnAnterior.disabled=false;
+    //     }else
+    //         btnAnterior.disabled=true;
+    // }
 
     useEffect(() => {
         dispatch(getGameName(name)); 
@@ -63,7 +60,7 @@ const VideoGameName = ({match}) => {
             (game_name !== undefined)?
             <div className="contenedor">
             {
-                game_name.slice(limInferior,limSuperior).map( game=>
+                game_name.map( game=>
                     <div key={game.id} className="item">
                         <h4>{game.name}</h4>
                         <img src={ game.image} alt="imagen video"/>
@@ -76,7 +73,7 @@ const VideoGameName = ({match}) => {
             </div>:
             <div>Cargando... </div>
             }
-              {
+              {/* {
         (game_name)&&    
             <div>
                 <br/>
@@ -84,7 +81,7 @@ const VideoGameName = ({match}) => {
             <button className="btnAnterior" onClick={handlerAnterior} >Anterior</button>
             <button className="btnSiguiente" onClick={handlerSiguiente} >Siguiente</button>
             </div>
-        }
+        } */}
         </div>
     )
 }

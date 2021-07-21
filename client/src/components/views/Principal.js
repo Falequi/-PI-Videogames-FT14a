@@ -1,31 +1,41 @@
 import   React, 
-       { useEffect }      from 'react';
-import { useDispatch }    from 'react-redux';
-import { getGenres, 
-         getPages, 
-         getPlatforms}    from '../../redux/action';
-import   VideoGamesList   from './VideoGamesList';
+       { useEffect, useState }          from 'react';
+import { useDispatch, 
+         useSelector }          from 'react-redux';
 
-import './principal.css';
+import   Search                 from './Search';
+import   Filters                from './Filters';
+
+import  Lists from './Lists';
 
 const Principal = () => {
 
-    const dispatch = useDispatch();
+    const   dispatch        = useDispatch();
+    const { games,
+            filters,
+            game_name}      = useSelector(state => state);     
     
-    // const { games } =  useSelector(state => state);
-
-    useEffect(() => {
-        dispatch(getGenres());
-        dispatch(getPlatforms());
-        dispatch(getPages()); 
-    },[dispatch]);
-
+    const [objGames, setObjGames] = useState([]);
     
-    return (
-            <div className="container">
+        
+        useEffect(() => {
+            if( game_name.length > 0 ){
+                setObjGames(game_name);
+            }
+            else{    
+                setObjGames(games);
+            }
+        },[games,game_name,filters]);
+
+        return (
+            (objGames !== undefined) &&
+            <div className="principal">
+                <header className="header">
+                    <Search/>
+                    <Filters />
+                </header>
                 { 
-                    // <VideoGamesList games={games}/>
-                    <VideoGamesList />
+                    <Lists objGames={objGames}/>
                 }
             </div>
         )

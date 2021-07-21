@@ -1,51 +1,39 @@
 import    React, 
-        { useEffect, 
-          useState }     from 'react'
+        { useEffect }    from 'react'
 import    parse          from 'html-react-parser';
 import  { useDispatch,
           useSelector }  from 'react-redux';
           
 import  { getGameId }    from '../../redux/action';
+import { Link } from 'react-router-dom';
 
 const VideoGame = ({match}) => {
-
+    
     const id = match.params.id;
-
+    
     const dispatch = useDispatch();
     
     const gamesObj =  useSelector(state => state);
-
-    const {game_id} = gamesObj;
-
-    const [page, setPage] = useState(0);
     
-    const handlerSiguiente = ()=>{
-        setPage(page+1);
-    }
-    const handlerAnterior = ()=>{
-        (page > 0)&&
-        setPage(page-1);
-    }
-   
+    const {game_id} = gamesObj;
+    
     useEffect(() => {
         dispatch(getGameId(id)); 
     },[dispatch,id]);
     
     return (
-        <div>
-            <h1>Video Game</h1>
+        <div className="containerVideoGameId">
             {
             (game_id !== undefined)?
-            <div key={game_id.id}>
-                {game_id.name}
+            <div className="cardVideogameId">
+                <h2 className="titelVideoGameId">{game_id.name}</h2>
                 <br/>
-                <img src={ game_id.image } alt="imagen game"/>
+                <img className="imgVideoGameId" src={ game_id.image } alt="imagen game"/>
 
-                <div>{parse(game_id.description)}</div>
-
+                <div>{ (game_id.description) && parse(game_id.description)}</div>
                 <ul>
                     {
-                        game_id.genres.map(gender=>
+                        (game_id.genres)&& game_id.genres.map(gender=>
                             <li 
                                 key={gender.id}> 
                                 {gender.name} 
@@ -60,7 +48,7 @@ const VideoGame = ({match}) => {
                 
                 <ul>
                     {
-                        game_id.platforms.map(gender=>
+                        (game_id.platforms)&&game_id.platforms.map(gender=>
                             (!gender.platform)?
                             <li 
                                 key={gender.id}> 
@@ -73,17 +61,13 @@ const VideoGame = ({match}) => {
                         )
                     }
                 </ul>
+                <Link to="/principal"> <button>Volver</button></Link>
             </div>:
             <div>Cargando... </div>
             }
-        {
-        (game_id)&&    
-            <div>
-            <button className="btnAnterior" onClick={handlerAnterior} >Anterior</button>
-            <button className="btnSiguiente" onClick={handlerSiguiente} >Siguiente</button>
-            </div>
-        } 
-        </div>
+
+           
+    </div>
     )
 }
 export default VideoGame
