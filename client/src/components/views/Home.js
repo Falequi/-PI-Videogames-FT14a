@@ -1,13 +1,12 @@
 import   React, { useEffect }  from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './home.css';
 
 
 import { getGenres, 
          getPages, 
-         getPlatforms,
-         stateLoad,
+         getPlatforms
           }    from '../../redux/action';
 
           

@@ -82,7 +82,10 @@ const Lists = ({objGames}) => {
             dispatch(getGenres());
         (platforms.length === 0)&&
             dispatch(getPlatforms());
-    }, [games]);
+    }, [dispatch,genres,games,platforms]);
+
+
+     
 
     if(games.length === 0)
         return( 
@@ -92,52 +95,73 @@ const Lists = ({objGames}) => {
                 </div>
             </>
             )
-            else
-            return (
-                <div>
-                { 
-                    (games !== undefined)&&
-                        <div className="contenedorList">
-                            {    
-                                games.slice(limInferior,limSuperior).map((games)=>
-                                    <div key={games.id} className="itemList" >
-                                        <h5>{games.name}</h5>
-                                        {
-                                        (games.image)&&
-                                            <img className="imgGameList" src={games.image} alt="imagen video"/>
-                                        }
-                                        {
-                                        (games.genres)?
-                                            <div className="gen">
-                                                <ul>
-                                                    {
-                                                        games.genres.map(genres=>
-                                                            <li key={genres.id}>{genres.name}</li>
-                                                            )
-                                                    }
-                                                </ul>
-                                            </div>:
-                                            <div className="gen">
-                                                <ul>
-                                                    {
-                                                        games.genders.map(genres=>
-                                                            <li key={genres.id}>{genres.name}</li>
-                                                            )
-                                                    }
-                                                </ul>
-                                            </div>
-                                        }
-                                        <Link to ={`/videogameId/${games.id}`} >Mas..</Link>
-                                    </div>
-                                )
+    else
+    return (
+        <div>
+        { 
+            (games !== undefined)&&
+                <div className="contenedorList">
+                {    
+                    games.slice(limInferior,limSuperior)
+                    .map((games)=>
+                        <div key={games.id} 
+                                className="itemList" 
+                        >
+                            <h5>{games.name}</h5>
+                            {
+                            (games.image)&&
+                                <img 
+                                    className="imgGameList" 
+                                    src={games.image} 
+                                    alt="imagen video"
+                                />
                             }
-                        </div > 
+                            {
+                            (games.genres)?
+                                <div className="gen">
+                                    <ul>
+                                        {
+                                            games.genres.map(genres=>
+                                                <li key={genres.id}>
+                                                    {genres.name}
+                                                </li>
+                                            )
+                                        }
+                                    </ul>
+                                </div>:
+                                <div className="gen">
+                                    <ul>
+                                        {
+                                            games.genders.map(genres=>
+                                                <li key={genres.id}>
+                                                    {genres.name}
+                                                </li>
+                                                )
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                            <Link to ={`/videogameId/${games.id}`} >Mas..</Link>
+                        </div>
+                    )
                 }
+                </div > 
+        }
             {
             (games)&&    
                 <div className="btnButtonsPagination">
-                    <button className="btnAnterior" onClick={handlerAnterior} >Anterior</button>
-                    <button className="btnSiguiente" onClick={handlerSiguiente} >Siguiente</button>
+                    <button 
+                        className="btnAnterior" 
+                        onClick={handlerAnterior} 
+                    >
+                        Anterior
+                    </button>
+                    <button 
+                        className="btnSiguiente" 
+                        onClick={handlerSiguiente} 
+                    >
+                        Siguiente
+                    </button>
                 </div>
             }
         </div>

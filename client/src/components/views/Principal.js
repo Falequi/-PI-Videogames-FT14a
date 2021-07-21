@@ -1,7 +1,6 @@
 import   React, 
-       { useEffect, useState }          from 'react';
-import { useDispatch, 
-         useSelector }          from 'react-redux';
+       { useEffect, useState }  from 'react';
+import { useSelector }          from 'react-redux';
 
 import   Search                 from './Search';
 import   Filters                from './Filters';
@@ -10,14 +9,12 @@ import  Lists from './Lists';
 
 const Principal = () => {
 
-    const   dispatch        = useDispatch();
     const { games,
             filters,
             game_name}      = useSelector(state => state);     
     
     const [objGames, setObjGames] = useState([]);
-    
-        
+
         useEffect(() => {
             if( game_name.length > 0 ){
                 setObjGames(game_name);

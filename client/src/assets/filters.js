@@ -8,7 +8,7 @@ export function fnFilters(games, filters) {
             games.map(game =>(
                 (game.genres)?    
                     game.genres.map(
-                        genre =>{ 
+                        (genre) =>{ 
                         if(genre.name === filters.genre)
                         filteredGames.push(game);
                     }):
