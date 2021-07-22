@@ -8,10 +8,8 @@ import loadig from '../../img/loading.gif';
 
 const Lists = ({objGames}) => {
 
-    var games = [];
+    var games = objGames;
     
-    games = objGames;
-
     const [page, setPage] = useState(0);
 
     const dispatch = useDispatch();
@@ -98,6 +96,23 @@ const Lists = ({objGames}) => {
     else
     return (
         <div>
+                       {
+            (games)&&    
+                <div className="btnButtonsPagination">
+                    <button 
+                        className="btnAnterior" 
+                        onClick={handlerAnterior} 
+                    >
+                        Anterior
+                    </button>
+                    <button 
+                        className="btnSiguiente" 
+                        onClick={handlerSiguiente} 
+                    >
+                        Siguiente
+                    </button>
+                </div>
+            }
         { 
             (games !== undefined)&&
                 <div className="contenedorList">
@@ -147,23 +162,7 @@ const Lists = ({objGames}) => {
                 }
                 </div > 
         }
-            {
-            (games)&&    
-                <div className="btnButtonsPagination">
-                    <button 
-                        className="btnAnterior" 
-                        onClick={handlerAnterior} 
-                    >
-                        Anterior
-                    </button>
-                    <button 
-                        className="btnSiguiente" 
-                        onClick={handlerSiguiente} 
-                    >
-                        Siguiente
-                    </button>
-                </div>
-            }
+ 
         </div>
         )
 }

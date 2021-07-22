@@ -2,7 +2,7 @@ import   React,
        { useState }         from 'react';
 import { useDispatch, useSelector}       from 'react-redux';
 import { clearGameName, getGameName }      from '../../redux/action';
-import { Link, Redirect }   from 'react-router-dom';
+import { Link }   from 'react-router-dom';
 
 const Search = () => {
 

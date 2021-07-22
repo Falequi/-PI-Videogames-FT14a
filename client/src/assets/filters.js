@@ -8,14 +8,14 @@ export function fnFilters(games, filters) {
             games.map(game =>(
                 (game.genres)?    
                     game.genres.map(
+                        (genre) =>{
+                        if(genre.name === filters.genre)
+                         filteredGames.push(game);
+                        }): 
+                    game.genders.map(
                         (genre) =>{ 
                         if(genre.name === filters.genre)
-                        filteredGames.push(game);
-                    }):
-                    game.genders.map(
-                        genre =>{ 
-                        if(genre.name === filters.genre)
-                          filteredGames.push(game);
+                           filteredGames.push(game);
                     })    
             ));
         }
@@ -24,16 +24,19 @@ export function fnFilters(games, filters) {
 
         if(filters.platform){
             
-            games.map(game =>
-            game.platforms.map(
-                platform =>{ 
-                if(!platform.platform){
-                    if(platform.name === filters.platform)
-                    filteredGames.push(game);   
-                }else{
-                    if(platform.platform.name === filters.platform)
-                    filteredGames.push(game);
-                }}));
+            games.map(game =>{
+                game.platforms.map(
+                    platform =>{
+                        if(!platform.platform){
+                            if(platform.name === filters.platform)
+                            filteredGames.push(game);   
+                        }else{
+                            if(platform.platform.name === filters.platform)
+                            filteredGames.push(game);
+                        }
+                    }
+                )
+            });
         }
 
         if(filters.alphabet){

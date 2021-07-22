@@ -12,12 +12,17 @@ var getVideoGames = async(req, res) => {
         videoGames = [];
 
     if (!name) {
+
+        // videoGames = await axios.get(`${baseUrl}games?${key}`);
+        // console.log(videoGames);
+
         for (let page = 1; page <= 5; page++) {
+            
             videoGames = await axios.get(`${baseUrl}games?${key}&page=${page}`);
-
+            
             result = videoGames.data.results;
-
-            result.map((result) => {
+            
+            await result.map((result) => {
                 searchVideoGames.push({
                     id: result.id,
                     name: result.name,
@@ -29,26 +34,26 @@ var getVideoGames = async(req, res) => {
                 });
             });
         }
-        const videoGameData = await Videogame.findAll({
-           include: [Gender, Platform]
-        });
-
-        Promise.all([videoGames, videoGameData]);
-
-        videoGameData.map((data) => searchVideoGames.push(data));
-    } else {
-        for (let page = 1; page <= 5; page++) {
-            videoGames = await axios.get(
-                `${baseUrl}games?${key}&search=${name}&page=${page}`
-            );
-
-            result = videoGames.data.results;
-
-            result.map((result) => {
-                searchVideoGames.push({
-                    id: result.id,
-                    name: result.name,
-                    description: result.slug,
+            const videoGameData = await Videogame.findAll({
+                include: [Gender, Platform]
+            });
+            
+            Promise.all([videoGames, videoGameData]);
+            
+            videoGameData.map((data) => searchVideoGames.push(data));
+        } else {
+            for (let page = 1; page <= 5; page++) {
+                videoGames = await axios.get(
+                    `${baseUrl}games?${key}&search=${name}&page=${page}`
+                    );
+                    
+                    result = videoGames.data.results;
+                    
+                    result.map((result) => {
+                        searchVideoGames.push({
+                            id: result.id,
+                            name: result.name,
+                            description: result.slug,
                     releaseDate: result.released,
                     rating: result.rating,
                     platforms: result.platforms,
@@ -60,13 +65,15 @@ var getVideoGames = async(req, res) => {
         const videoGameData = await Videogame.findAll({
             where: {
                   name: {  [Op.iLike]: `%${name}%` }
-            }
+            },
+            include: [Gender, Platform]
         });
 
         Promise.all([videoGames, videoGameData]);
-
+        
         videoGameData.map((data) => searchVideoGames.push(data));
     }
+
 
     res.json(searchVideoGames);
 };

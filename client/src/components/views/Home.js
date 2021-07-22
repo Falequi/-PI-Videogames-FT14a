@@ -1,17 +1,14 @@
 import   React, { useEffect }  from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './home.css';
+import '../../styles/home.css';
 
 
 import { getGenres, 
          getPages, 
          getPlatforms
           }    from '../../redux/action';
-
-          
-          
-          
+                    
 const Home = () => {
            
     const dispatch =  useDispatch();
@@ -23,7 +20,7 @@ const Home = () => {
              dispatch(getPages()); 
         };
         initialLoading();
-    }, []);
+    }, [dispatch]);
     
     return (
         <>  
