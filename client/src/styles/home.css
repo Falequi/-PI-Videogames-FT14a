@@ -1,81 +1,117 @@
 /* Globales */
-*{
+
+* {
     box-sizing: border-box;
+    font-family: "Halo", sans-serif;
+    /* color: rgba(139,0,0); */
 }
+
+
+
 /* Fin Globales */
+
+
 /*Header*/
-.header{
+
+.header {
+    /* background-color: seagreen; */
     width: 100%;
-    height: 80px;
+    height: 60px;
     margin: 0;
-    padding: 0;
-    background-color:rgb(27, 79, 114, .80);
+    padding: 10px;
     position: fixed;
+    display: flex;
+    /* background-image: url("https://img.freepik.com/foto-gratis/elegante-tecnica-artesanal-negra-aquarelle_23-2148300751.jpg?size=626&ext=jpg"); */
+    background-color: rgba(0, 0, 0, .5);
+    
 }
-.header:target{
+
+.header:target {
     padding-top: 75%;
 }
 
+
 /*Fin Header*/
+
+
 /* App*/
-.App{
-    background-color: black;
+
+.App {
+    background-color: #892CDC;
 }
+
+
 /* Fin App*/
 
+
 /* Home */
+
 .home {
-    height: 100vh;
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-image: url("https://www.pandasecurity.com/es/mediacenter/src/uploads/2021/07/pandasecurity-videojuegos-dinero.jpg");
+    /* background-repeat: no-repeat; */
+    background-image: url("https://www.mwallpapers.com/download-image/733312/1080x608");
     background-size: cover;
-    background-position: center ;
+    background-position: center;
     position: absolute;
+    height: 100%;
+    width: 100%;
 }
+
+.home img {
+    width: 100px;
+    position: relative;
+    top: 55%;
+}
+
 .container {
     position: relative;
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .container .btn-home {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    opacity: .10;
-    background-color: #f1f1f1;
-    color: black;
-    font-size: 50px;
-    padding: 20px 35px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    transition: 550ms ease;
-}
-.btn-home:hover {
-    opacity: 1;
-    width: 180px;
+    width: 100px;
     height: 100px;
-    background-color: black;
-    color: white;
+    opacity: .5;
 }
 
-.title{
-    width: 100px;
-    height: 40px;
-    padding: 10px;
+.btn-home:hover {
+    opacity: 1;
+    width: 110px;
+    height: 110px
+}
+
+.title {
+    width: 300px;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     color: white;
+    /* background-color: blue; */
 }
+
+
 /* Fin Home */
 
+
 /* List */
+
+.navList {
+    width: 100%;
+    margin-top: 110px;
+    position: fixed;
+    display: block;
+}
+
+.navList:target {
+    padding-top: 75%;
+}
+
 .contenedorList {
-    padding-top: 100px;
+    padding-top: 60px;
     margin: 0px auto;
     display: flex;
     flex-flow: wrap;
@@ -86,19 +122,18 @@
     width: 180px;
     height: 120px;
     border-radius: 50px 200px / 250px 80px;
-    box-shadow: 5px 10px 10px 5px;
+    box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, .8);
 }
 
 .imgGameList:hover {
-    width: 220px;
+    width: 200px;
     height: 140px;
-    box-shadow: 5px 10px 10px 5px blue;
+    box-shadow: 5px 10px 10px 5px rgba(255, 255, 255, .8);
 }
 
-
-li{
-    padding-top: 10px;
-    text-align:center;
+li {
+    padding-top: 1px;
+    text-align: start;
     list-style: none;
 }
 
@@ -109,27 +144,79 @@ li{
     padding: 20px;
     display: inline-block;
     line-height: 15px;
-    background-color: slategrey;
-    border-radius: 50px 200px / 250px 80px;
-    box-shadow: 5px 10px 20px 2px yellow;
+    background-image: url("https://www.publicdomainpictures.net/pictures/360000/velka/wood-texture-background-1594106693G22.jpg");
+    border-radius: 50px 200px / 250px 30px;
+    box-shadow: 5px 10px 20px 5px rgba(65,105,225);
+}
+.listRating{
+    width: 60px;
+    height: 30px;
+    margin: 0;
+    font-size: 1em;
+    color: rgba(240,255,255);
+    letter-spacing: 1.4px;
+    line-height: 30px;
+    border-radius: 50px;
+    position: relative;
+    left: 80%;
+    top:.1%;
+}
+
+.titleCard h5 {
+    /* background-color: royalblue; */
+    font-family: "Halo", sans-serif;
+    font-size: 1.3em;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: 8px;
+    padding-top: 2px;
+    color: rgba(240,255,255);
+    letter-spacing: 1.4px;
+} 
+
+.gen{
+    font-size: 1em;
+    margin: 0;
+    padding: 5px;
+    color: rgba(240,255,255);
+    letter-spacing: 1px; 
+}
+
+.listBtnMore img{
+    background-color: black;
+    width: 100px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.listBtnMore:hover {
+    width: 110px;
+    height: 50px;
+    padding: 0;
+    margin: 0;
 }
 
 
 /* Fin List */
 
-/* Fin Filter */
 
 /* VideoGameId */
-.containerVideoGameId{
-    display: flex;
-    flex-flow: wrap;
-    color: blanchedalmond;
+
+.containerVideoGameId {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    /* color: blanchedalmond; */
 }
-.cardVideogameId{
-    margin-top: 5px;
-    
+
+.cardVideogameId {
+    margin: 0px;
+    padding-top: 10px;
 }
-.titelVideoGameId{
+
+.titelVideoGameId {
     width: 180px;
     height: 40px;
     margin-left: auto;
@@ -137,41 +224,79 @@ li{
     margin-top: 5px;
     margin-bottom: 5px;
 }
-.imgVideoGameId{
-    width: 250px;
-    height: 200px;
-    margin: 10px auto;
+
+.imgVideoGameId {
+    margin: 10px 0px;
+    width: 350px;
+    height: 180px;
+    border-radius: 50px 200px / 250px 80px;
+    box-shadow: 5px 10px 10px 5px khaki;
 }
+
+.descriptionVideoGameId {
+    padding: 0px 20px;
+    text-align: justify;
+}
+
+.ulGenresVideoGameID {
+    padding: 0px 20px;
+    display: flex;
+    justify-content: left;
+}
+
+.ulGenresVideoGameID li {
+    display: flex;
+    margin-left: 10px;
+}
+
+.cardVideogameId button {
+    width: 150px;
+    height: 35px;
+    margin-bottom: 20px;
+    border-radius: 50px 80px / 10px 200px;
+    background-color: #BC6FF1;
+}
+
+
 /* Fin VideoGameId */
 
+
 /* Loading */
-.loading{
+
+.loading {
     background-color: red;
 }
 
+
 /* Fin Loading*/
 
+
 /*Pagination*/
-.btnButtonsPagination{
-    width: 500px;
-    height: 70px;
+
+.btnButtonsPagination {
+    width: 100%;
+    height: 100px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 100px;
+    margin: 0;
+    padding: 15px;
 }
 
 .btnButtonsPagination button {
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 35px;
     margin-right: 10px;
     border-radius: 50px 80px / 10px 200px;
-    background-color: yellow;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7d3603e9-870b-4ae0-b0c1-ba376e580e9e/d9q2q6b-cb6d0042-0bb4-4c0b-be08-a5bbc5befc0e.jpg/v1/fill/w_1024,h_683,q_75,strp/paper_texture_grey_card_stock_photo_wallpaper_hand_by_texturex_com_d9q2q6b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgzIiwicGF0aCI6IlwvZlwvN2QzNjAzZTktODcwYi00YWUwLWIwYzEtYmEzNzZlNTgwZTllXC9kOXEycTZiLWNiNmQwMDQyLTBiYjQtNGMwYi1iZTA4LWE1YmJjNWJlZmMwZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.k-JdnerA8a8dN73QvLBaIntYQnKvpcsixPHR5Yxs5cc");
 }
+
 
 /* Fin  Pagination*/
 
+
 /* FormVideoGame*/
-.containerFormVideoGame{
+
+.containerFormVideoGame {
     width: 100%;
     height: 100%;
     padding: 0;
@@ -179,14 +304,12 @@ li{
     color: white;
 }
 
-.formTitle{
+.formTitle {
     width: 100%;
     height: 80px;
     padding-top: 25px;
     margin: 0px;
     margin-bottom: 20px;
-    background-color: blueviolet;
-    border: cadetblue;
 }
 
 .formTitle hr {
@@ -198,58 +321,118 @@ li{
     border-style: double;
 }
 
-.form{
+.form {
     width: 100%;
     height: 100%;
     padding: 10px;
     margin: 0;
-    /* display: flex; */
-    /* flex-direction: row;
-    justify-content: space-evenly;
-    align-content: flex-start; */
     background-color: black;
 }
 
+.labelInputForm label {
+    display: inline-block;
+    width: 150px;
+    text-align: end;
+}
 
-.labelInputForm label input{
+.labelInputForm input {
+    background-color: black;
+    color: white;
     align-items: flex-end;
     margin-top: 10px;
-    
- 
+    margin-left: 10px;
 }
 
+.form button {
+    width: 150px;
+    height: 35px;
+    margin-bottom: 20px;
+    border-radius: 50px 80px / 10px 200px;
+    background-color: #BC6FF1;
+}
+
+
 /* Fin FormVideoGame*/
+
 
 /* Principal */
-.principal{
-    display: flex;
-    background-color: black;
+
+.principal {
+    /* background-image: url("https://www.publicdomainpictures.net/pictures/360000/velka/wood-texture-background-1594106693G22.jpg"); */
+    background-image: url("https://i.pinimg.com/originals/e2/3d/e3/e23de36c6c0a6740b1a4df261978c8ea.jpg");
+    /* background-color: black; */
+    background-size: cover;
+    background-position: center;
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    /* display: flex; */
+    /* background-color: #A2C9CD; */
 }
+
+
 /* Fin Principal */
 
+
 /* Filter */
-.containerFilter{
-    display: flex;
-    padding: 10px;
-    justify-content: space-evenly;
-   /* overflow: hidden; */
+
+.containerFilter {
+    padding: 5px;
 }
+
+.containerFilter select {
+    width: 180px;
+    height: 30px;
+    margin-right: 5px;
+    border-radius: 50px 200px / 250px 80px;
+    background-color: rgba(0, 0, 0, .3);
+    color: rgba(255, 255, 255, .8);
+    letter-spacing: 1px;
+}
+
+
 /* Fin  Filter */
 
+
 /* Search */
-.containerSearch{
-    display: flex; 
-    padding-top: 5px;
-    justify-content: space-evenly;
+
+.containerSearch {
+    padding-top: 5px;    
 }
+
+
+.containerSearch input {
+    width: 250px;
+    height: 30px;
+    margin: 0px 10px;
+    margin-left: 5px;
+    border-radius: 50px 200px / 250px 80px;
+    background-color: rgba(0, 0, 0, .3);
+    color: rgba(255, 255, 255);
+    
+}
+
+.containerSearch button {
+    width: 100px;
+    height: 30px;
+    margin: 0px 10px;
+    border-radius: 50px 200px / 250px 80px;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7d3603e9-870b-4ae0-b0c1-ba376e580e9e/d9q2q6b-cb6d0042-0bb4-4c0b-be08-a5bbc5befc0e.jpg/v1/fill/w_1024,h_683,q_75,strp/paper_texture_grey_card_stock_photo_wallpaper_hand_by_texturex_com_d9q2q6b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgzIiwicGF0aCI6IlwvZlwvN2QzNjAzZTktODcwYi00YWUwLWIwYzEtYmEzNzZlNTgwZTllXC9kOXEycTZiLWNiNmQwMDQyLTBiYjQtNGMwYi1iZTA4LWE1YmJjNWJlZmMwZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.k-JdnerA8a8dN73QvLBaIntYQnKvpcsixPHR5Yxs5cc");
+    color: black;
+}
+
+
 /* Fin Search */
 
+
 /* FormVideoGame */
-.contentPlatform{
-    display: flex;   
-    flex-wrap: wrap; 
+
+.contentPlatform {
+    display: flex;
+    flex-wrap: wrap;
 }
-.itemPlatform{
+
+.itemPlatform {
     height: 20px;
     width: 180px;
     margin: 0.1rem;
@@ -257,18 +440,42 @@ li{
     text-align: left;
 }
 
-.contentGender{
-    display: flex;   
-    flex-wrap: wrap; 
+.contentGender {
+    display: flex;
+    flex-wrap: wrap;
 }
-.itemGender{
+
+.itemGender {
     height: 20px;
     width: 180px;
     margin: 0.1rem;
     line-height: 30px;
     text-align: left;
 }
+
 
 /* Fin FormVideoGame*/
 
 
+/* Footer*/
+
+.footer {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    display: block;
+    top: 90%;
+    /* background-image: url("https://img.freepik.com/foto-gratis/elegante-tecnica-artesanal-negra-aquarelle_23-2148300751.jpg?size=626&ext=jpg"); */
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+/* Fin Footer*/
+
+
+/* aside{
+    display: block;
+    width: 20%;
+    height: 100%;
+    background-color: slategrey;
+} */

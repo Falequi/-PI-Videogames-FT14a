@@ -25,11 +25,9 @@ const Home = () => {
     return (
         <>  
         <div className="home">
-        <h1 className="title">Home</h1> 
-        <hr/> 
             <div className="container">
                 <Link to="/principal" >
-                    <button className='btn-home'>Play</button>
+                    <img className='btn-home' src="https://static.vecteezy.com/system/resources/previews/001/200/443/original/music-button-play-png.png"/>
                 </Link>
             </div>
         </div>

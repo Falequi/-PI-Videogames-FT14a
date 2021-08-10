@@ -11,8 +11,8 @@ const Principal = () => {
 
     const { games,
             filters,
-            game_name}      = useSelector(state => state);     
-    
+            game_name}      = useSelector(state => state);  
+
     const [objGames, setObjGames] = useState([]);
 
         useEffect(() => {
@@ -28,8 +28,8 @@ const Principal = () => {
             (objGames !== undefined) &&
             <div className="principal">
                 <header className="header">
-                    <Search/>
                     <Filters />
+                    <Search/>
                 </header>
                 { 
                     <Lists objGames={objGames}/>

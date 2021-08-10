@@ -33,14 +33,14 @@ const Search = () => {
             <label>Buscar</label>
             <input
                 name="busqueda"
-                placeholder="Digite el nombre del video Juego"
+                placeholder="Search Game"
                 onChange={handleChange}
                 value={nameGame}
                 autoFocus
             />
             <button type="submit">Buscar</button>
-            </form>
             <Link to="/formVideoGame"><button> Crear</button></Link>
+            </form>
         </div>
     )
 }

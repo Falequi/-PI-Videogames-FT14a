@@ -1,9 +1,14 @@
-import React, { useEffect, useState }    from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
-import { fnFilters } from '../../assets/filters';
-import { getGenres, getPages, getPlatforms } from '../../redux/action';
-import loadig from '../../img/loading.gif';
+import   React, 
+     {   useEffect, 
+         useState }     from 'react'
+import { useDispatch, 
+         useSelector }  from 'react-redux';
+import { Link }         from 'react-router-dom'
+import { fnFilters }    from '../../assets/filters';
+import { getGenres, 
+         getPages, 
+         getPlatforms } from '../../redux/action';
+import   loadig         from '../../img/loading.gif';
 
 
 const Lists = ({objGames}) => {
@@ -83,7 +88,7 @@ const Lists = ({objGames}) => {
     }, [dispatch,genres,games,platforms]);
 
 
-     
+     console.log(games);
 
     if(games.length === 0)
         return( 
@@ -96,23 +101,6 @@ const Lists = ({objGames}) => {
     else
     return (
         <div>
-                       {
-            (games)&&    
-                <div className="btnButtonsPagination">
-                    <button 
-                        className="btnAnterior" 
-                        onClick={handlerAnterior} 
-                    >
-                        Anterior
-                    </button>
-                    <button 
-                        className="btnSiguiente" 
-                        onClick={handlerSiguiente} 
-                    >
-                        Siguiente
-                    </button>
-                </div>
-            }
         { 
             (games !== undefined)&&
                 <div className="contenedorList">
@@ -122,7 +110,12 @@ const Lists = ({objGames}) => {
                         <div key={games.id} 
                                 className="itemList" 
                         >
+                            <div className="listRating">
+                                {games.rating}
+                            </div>
+                            <div className="titleCard">
                             <h5>{games.name}</h5>
+                            </div>
                             {
                             (games.image)&&
                                 <img 
@@ -156,13 +149,35 @@ const Lists = ({objGames}) => {
                                     </ul>
                                 </div>
                             }
-                            <Link to ={`/videogameId/${games.id}`} >Mas..</Link>
+                            <div className="listBtnMore">
+                                <Link to ={`/videogameId/${games.id}`} ><img className='listBtnMas' src="https://cpaaicabrerayasociados.co/wp-content/uploads/2019/07/boton-ver-mas-slider-3.1-1.png"/>
+                                </Link>
+                            </div>
                         </div>
                     )
                 }
                 </div > 
         }
- 
+        {
+         (games)&& 
+        <footer className="footer">
+        <div className="btnButtonsPagination">
+                    <button 
+                        className="btnAnterior" 
+                        onClick={handlerAnterior} 
+                    >
+                        Anterior
+                    </button>
+                    <button 
+                        className="btnSiguiente" 
+                        onClick={handlerSiguiente} 
+                    >
+                        Siguiente
+                    </button>
+                </div>
+        <h1> Footer</h1>
+        </footer>
+        }
         </div>
         )
 }

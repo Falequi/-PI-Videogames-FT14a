@@ -7,6 +7,8 @@ import { clearFilter, filterAlpha,
          filterPlatform, 
          filterRating }     from '../../redux/action';
 
+
+
 const Filters = () => {
 
     const [gender,       setGender]        = useState('');
@@ -124,7 +126,7 @@ const Filters = () => {
                         value = { alphabetical }
                         onChange={handlerSelAlphabetical}
                     >
-                    <option defaultValue="Alphabetical" > Alphabetical Order </option>
+                    <option defaultValue="Alphabetical" > Alphabetical </option>
                     <option value="AZ"> Ascending Order (AZ) </option>
                     <option value="ZA"> Descending Order (ZA) </option>
                     </select>

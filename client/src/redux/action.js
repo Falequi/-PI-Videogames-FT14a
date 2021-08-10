@@ -16,6 +16,7 @@ export const CLEAR_FILTER         = "CLEAR_FILTER";
 
 
 export function getPages() {
+    
     return (dispatch) => {
       axios.get('http://localhost:3001/videogames')
       .then((response) => {

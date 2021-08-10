@@ -118,6 +118,7 @@ const FormVideoGame = () => {
                             onChange = {handlerChange}
                             required
                         />
+                        
                     </div>
                         <br/>
                     <div className="labelInputForm">
