@@ -1,12 +1,24 @@
 /* Globales */
 
 * {
-    box-sizing: border-box;
-    font-family: "Halo", sans-serif;
-    /* color: rgba(139,0,0); */
+    font-family: "Gorehand Straight", sans-serif;
+    letter-spacing: 4px;
 }
 
+body{
+        background-image: url("https://i.pinimg.com/originals/e2/3d/e3/e23de36c6c0a6740b1a4df261978c8ea.jpg");
+}
 
+button {
+    color: black;
+} 
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: gray;
+}
 
 /* Fin Globales */
 
@@ -14,22 +26,18 @@
 /*Header*/
 
 .header {
-    /* background-color: seagreen; */
     width: 100%;
     height: 60px;
     margin: 0;
     padding: 10px;
     position: fixed;
     display: flex;
-    /* background-image: url("https://img.freepik.com/foto-gratis/elegante-tecnica-artesanal-negra-aquarelle_23-2148300751.jpg?size=626&ext=jpg"); */
     background-color: rgba(0, 0, 0, .5);
-    
 }
 
 .header:target {
     padding-top: 75%;
 }
-
 
 /*Fin Header*/
 
@@ -40,14 +48,12 @@
     background-color: #892CDC;
 }
 
-
 /* Fin App*/
 
 
 /* Home */
 
 .home {
-    /* background-repeat: no-repeat; */
     background-image: url("https://www.mwallpapers.com/download-image/733312/1080x608");
     background-size: cover;
     background-position: center;
@@ -89,8 +95,7 @@
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    color: white;
-    /* background-color: blue; */
+    color: black;
 }
 
 
@@ -112,7 +117,7 @@
 
 .contenedorList {
     padding-top: 60px;
-    margin: 0px auto;
+    padding-bottom: 60px;
     display: flex;
     flex-flow: wrap;
     justify-content: space-around;
@@ -149,48 +154,45 @@ li {
     box-shadow: 5px 10px 20px 5px rgba(65,105,225);
 }
 .listRating{
-    width: 60px;
-    height: 30px;
+    width: 3.5em;
+    height: 2em;
     margin: 0;
-    font-size: 1em;
-    color: rgba(240,255,255);
-    letter-spacing: 1.4px;
+    font-size: 1.2em;
+    color: black;
+    letter-spacing: 0.1em;
     line-height: 30px;
     border-radius: 50px;
     position: relative;
-    left: 80%;
+    left: 75%;
     top:.1%;
 }
 
 .titleCard h5 {
     /* background-color: royalblue; */
-    font-family: "Halo", sans-serif;
-    font-size: 1.3em;
+    font-family: "Gorehand", sans-serif;
+    font-size: 1.2em;
     margin-top: 0px;
-    margin-bottom: 10px;
-    padding: 8px;
-    padding-top: 2px;
-    color: rgba(240,255,255);
-    letter-spacing: 1.4px;
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    padding-top: 0.1em;
+    letter-spacing: 0.2em;
 } 
 
 .gen{
     font-size: 1em;
     margin: 0;
-    padding: 5px;
-    color: rgba(240,255,255);
-    letter-spacing: 1px; 
+    color: black;
+    letter-spacing: .5em; 
 }
 
 .listBtnMore img{
-    background-color: black;
     width: 100px;
     height: 40px;
     padding: 0;
     margin: 0;
 }
 
-.listBtnMore:hover {
+.listBtnMore img:hover {
     width: 110px;
     height: 50px;
     padding: 0;
@@ -204,25 +206,35 @@ li {
 /* VideoGameId */
 
 .containerVideoGameId {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    /* color: blanchedalmond; */
+    background-image: 
+    url("https://i.pinimg.com/originals/e2/3d/e3/e23de36c6c0a6740b1a4df261978c8ea.jpg");
+    font-size: 1.2em;
+    letter-spacing: 2em;
 }
 
 .cardVideogameId {
-    margin: 0px;
-    padding-top: 10px;
 }
 
 .titelVideoGameId {
+    padding: 1em;
+    color: white;
     width: 180px;
     height: 40px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.releaseDateVideoGameId{
+    padding: 0.8em;
+    font-size: 0.9em;
+    color: white;
+}
+.ratingDateVideoGameId{
+    padding: 0.1em;
+    font-size: 0.9em;
+    color: white;
 }
 
 .imgVideoGameId {
@@ -233,20 +245,32 @@ li {
     box-shadow: 5px 10px 10px 5px khaki;
 }
 
-.descriptionVideoGameId {
+.descriptionVideoGameId p {
+    color: white;
     padding: 0px 20px;
-    text-align: justify;
+    font-size: 0.9em;
+    letter-spacing: 0.4em;
+}
+
+.GenderPlatforVideoGameId{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
 }
 
 .ulGenresVideoGameID {
+    color: white;
     padding: 0px 20px;
-    display: flex;
-    justify-content: left;
 }
 
 .ulGenresVideoGameID li {
-    display: flex;
+    color: white;
     margin-left: 10px;
+}
+
+.ulGenresVideoGameID h4 {
+    color: white;
 }
 
 .cardVideogameId button {
@@ -254,9 +278,8 @@ li {
     height: 35px;
     margin-bottom: 20px;
     border-radius: 50px 80px / 10px 200px;
-    background-color: #BC6FF1;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7d3603e9-870b-4ae0-b0c1-ba376e580e9e/d9q2q6b-cb6d0042-0bb4-4c0b-be08-a5bbc5befc0e.jpg/v1/fill/w_1024,h_683,q_75,strp/paper_texture_grey_card_stock_photo_wallpaper_hand_by_texturex_com_d9q2q6b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgzIiwicGF0aCI6IlwvZlwvN2QzNjAzZTktODcwYi00YWUwLWIwYzEtYmEzNzZlNTgwZTllXC9kOXEycTZiLWNiNmQwMDQyLTBiYjQtNGMwYi1iZTA4LWE1YmJjNWJlZmMwZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.k-JdnerA8a8dN73QvLBaIntYQnKvpcsixPHR5Yxs5cc");
 }
-
 
 /* Fin VideoGameId */
 
@@ -302,21 +325,21 @@ li {
     padding: 0;
     margin: 0;
     color: white;
+    /* background-image: url("https://i.pinimg.com/originals/e2/3d/e3/e23de36c6c0a6740b1a4df261978c8ea.jpg"); */
 }
 
 .formTitle {
+    color: white;
     width: 100%;
-    height: 80px;
-    padding-top: 25px;
+    height: 4em;
+    padding-top: 2em;
     margin: 0px;
-    margin-bottom: 20px;
 }
 
 .formTitle hr {
     height: 20px;
     padding: 0;
     margin: 0;
-    border: crimson;
     border-width: 10px;
     border-style: double;
 }
@@ -326,18 +349,20 @@ li {
     height: 100%;
     padding: 10px;
     margin: 0;
-    background-color: black;
+    background-image: url("https://i.pinimg.com/originals/e2/3d/e3/e23de36c6c0a6740b1a4df261978c8ea.jpg");
+    color: white;
 }
 
 .labelInputForm label {
     display: inline-block;
     width: 150px;
     text-align: end;
+    color: white;
 }
 
 .labelInputForm input {
     background-color: black;
-    color: white;
+    color: grey;
     align-items: flex-end;
     margin-top: 10px;
     margin-left: 10px;
@@ -348,7 +373,11 @@ li {
     height: 35px;
     margin-bottom: 20px;
     border-radius: 50px 80px / 10px 200px;
-    background-color: #BC6FF1;
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7d3603e9-870b-4ae0-b0c1-ba376e580e9e/d9q2q6b-cb6d0042-0bb4-4c0b-be08-a5bbc5befc0e.jpg/v1/fill/w_1024,h_683,q_75,strp/paper_texture_grey_card_stock_photo_wallpaper_hand_by_texturex_com_d9q2q6b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjgzIiwicGF0aCI6IlwvZlwvN2QzNjAzZTktODcwYi00YWUwLWIwYzEtYmEzNzZlNTgwZTllXC9kOXEycTZiLWNiNmQwMDQyLTBiYjQtNGMwYi1iZTA4LWE1YmJjNWJlZmMwZS5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.k-JdnerA8a8dN73QvLBaIntYQnKvpcsixPHR5Yxs5cc");
+}
+
+.labelPlatformsForm{
+    color: white;
 }
 
 
@@ -358,16 +387,11 @@ li {
 /* Principal */
 
 .principal {
-    /* background-image: url("https://www.publicdomainpictures.net/pictures/360000/velka/wood-texture-background-1594106693G22.jpg"); */
     background-image: url("https://i.pinimg.com/originals/e2/3d/e3/e23de36c6c0a6740b1a4df261978c8ea.jpg");
-    /* background-color: black; */
     background-size: cover;
     background-position: center;
-    /* position: absolute; */
     height: 100%;
     width: 100%;
-    /* display: flex; */
-    /* background-color: #A2C9CD; */
 }
 
 
@@ -387,8 +411,17 @@ li {
     border-radius: 50px 200px / 250px 80px;
     background-color: rgba(0, 0, 0, .3);
     color: rgba(255, 255, 255, .8);
-    letter-spacing: 1px;
+    letter-spacing: 1.8px;
 }
+
+.containerFilter select option {
+    font-size: 20px;
+    background-color: black;
+    color: rgba(255, 255, 255, .8);
+    letter-spacing: 10px;
+    padding: 10px;
+}
+
 
 
 /* Fin  Filter */
@@ -428,29 +461,45 @@ li {
 /* FormVideoGame */
 
 .contentPlatform {
+    padding: 1em;
     display: flex;
     flex-wrap: wrap;
 }
 
 .itemPlatform {
-    height: 20px;
-    width: 180px;
+    font-size: .8em;
+    height: 2em;
+    width: 22em;
     margin: 0.1rem;
-    line-height: 30px;
+    line-height: 1.6em;
     text-align: left;
 }
 
+.itemPlatform label{
+    padding: .8em;
+    color: white;
+    letter-spacing: .2em;
+}
+
 .contentGender {
+    padding: 1em;
     display: flex;
     flex-wrap: wrap;
 }
 
 .itemGender {
-    height: 20px;
-    width: 180px;
+    font-size: .8em;
+    height: 2em;
+    width: 22em;
     margin: 0.1rem;
-    line-height: 30px;
+    line-height: 1.6em;
     text-align: left;
+}
+
+.itemGender label{
+    padding: .8em;
+    color: white;
+    letter-spacing: .2em;
 }
 
 
@@ -465,17 +514,9 @@ li {
     position: fixed;
     display: block;
     top: 90%;
-    /* background-image: url("https://img.freepik.com/foto-gratis/elegante-tecnica-artesanal-negra-aquarelle_23-2148300751.jpg?size=626&ext=jpg"); */
     background-color: rgba(0, 0, 0, .5);
 }
 
 
 /* Fin Footer*/
 
-
-/* aside{
-    display: block;
-    width: 20%;
-    height: 100%;
-    background-color: slategrey;
-} */

@@ -96,8 +96,8 @@ const FormVideoGame = () => {
 
     return (
         <div className="containerFormVideoGame">
-            <h2 className="formTitle">Formulario Video Game</h2>
             <div className="form">
+            <h2> Formulario Video Game</h2>
                 <form  onSubmit={handlerSubmit} action="http://localhost:3000/principal" >
                     <div className="labelInputForm">
                         <label >Nombre: </label>
@@ -143,7 +143,7 @@ const FormVideoGame = () => {
                     </div>
                     <br />
                     <br />
-                    <label>Platforms: </label>
+                    <label className="labelPlatformsForm">Platforms: </label>
                     <div className="contentPlatform">
                         {
                             (platforms !== undefined)&&
@@ -156,14 +156,14 @@ const FormVideoGame = () => {
                                             onClick = {handlerChangePlatform}
                                             value={platform.name}
                                         /> 
-                                        <label name="genres1">{platform.name}</label>
+                                        <label name="platforrm">{platform.name}</label>
                                 </div>
                                 )
                         }
                     </div>
                     <br />
                     <br />
-                    <label>Genres: </label>
+                    <label className="labelPlatformsForm">Genres: </label>
                     <div className="contentGender">
                     {   
                         (genres !== undefined) &&
@@ -172,11 +172,11 @@ const FormVideoGame = () => {
                             <input
                                 className={ genres.name }
                                 type="checkbox"
-                                name="genres1"
+                                name="genres"
                                 onClick = {handlerChangeGender}
                                 value={genres.name}
                             /> 
-                            <label name="genres1">{genres.name}</label>
+                            <label name="genres">{genres.name}</label>
                         </div>
                         )
                     }
